@@ -40,16 +40,16 @@ document.addEventListener("DOMContentLoaded", function () {
     taskInput.value = "";
   }
 
-  // Add event listener to the "Add Task" button
+  // Event listener for the Add Task button
   addButton.addEventListener("click", addTask);
 
-  // Add event listener to the input field for "Enter" key
+  // Event listener for pressing Enter in the input field
   taskInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       addTask();
     }
   });
 
-  // Optionally, call addTask on DOMContentLoaded (per instructions, though not strictly needed)
+  // Optionally, call addTask on DOMContentLoaded if needed (usually not required)
   // addTask();
 });
