@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const taskInput = document.getElementById("task-input");
   const taskList = document.getElementById("task-list");
 
-  // Function to add a task
+  // Function to add tasks
   function addTask() {
-    const taskText = taskInput.value.trim();
+    let taskText = taskInput.value.trim(); // get and trim input
+
+    // Check if empty
     if (taskText === "") {
       alert("Please enter a task.");
       return;
@@ -20,21 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.className = "remove-btn";
+
+    // Remove task on click
     removeBtn.onclick = function () {
       taskList.removeChild(li);
     };
 
-    // Append button and li
+    // Append and clear input
     li.appendChild(removeBtn);
     taskList.appendChild(li);
-
-    // Clear input
     taskInput.value = "";
   }
 
-  // Event listeners
+  // Add button listener
   addButton.addEventListener("click", addTask);
 
+  // Add task on pressing Enter
   taskInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       addTask();
